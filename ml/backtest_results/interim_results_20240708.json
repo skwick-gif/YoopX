@@ -1,0 +1,19 @@
+{
+  "config": {
+    "start_date": "2024-07-01",
+    "end_date": "2024-07-31",
+    "horizons": [
+      1,
+      5,
+      10
+    ],
+    "algorithms": [
+      "rf"
+    ]
+  },
+  "daily_results": {
+    "2024-07-01": {},
+    "2024-07-08": {}
+  },
+  "summary": {}
+}

@@ -1,0 +1,19 @@
+{
+  "ml_model": "ensemble",
+  "ml_min_prob": 0.0,
+  "score_formula": "weighted",
+  "w_prob": 0.55,
+  "w_rr": 0.25,
+  "w_fresh": 0.15,
+  "w_pattern": 0.05,
+  "horizons": "5,10,20",
+  "use_horizon": "",
+  "lookback": 30,
+  "rr_target": "2xATR",
+  "min_rr": 0.0,
+  "min_price": null,
+  "max_price": null,
+  "min_atr": null,
+  "max_atr": null,
+  "max_age": null
+}

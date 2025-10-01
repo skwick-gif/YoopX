@@ -1,0 +1,13 @@
+{
+  "auto_train_on_start": true,
+  "auto_scan_on_start": true,
+  "auto_optimize_ensemble": true,
+  "auto_retrain_on_drift": true,
+  "drift_threshold": 1.25,
+  "drift_consecutive": 5,
+  "retrain_cooldown_hours": 6,
+  "auto_scan_interval_minutes": 15,
+  "default_train_model": "rf",
+  "default_train_horizons": "",
+  "default_scan_strategy": "Donchian Breakout"
+}

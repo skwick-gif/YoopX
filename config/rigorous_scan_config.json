@@ -1,0 +1,130 @@
+{
+  "rigorous_profiles": {
+    "conservative": {
+      "name": "Conservative Premium",
+      "description": "מניות איכותיות שמרניות עם סיכון נמוך",
+      "technical": {
+        "min_score": 75.0,
+        "required_signals": ["Buy"],
+        "max_age": 7,
+        "min_rr_ratio": 2.5,
+        "min_patterns": 1
+      },
+      "fundamental": {
+        "min_score": 75.0,
+        "max_pe": 20.0,
+        "min_roe": 0.15,
+        "max_debt_equity": 40.0,
+        "required_strength": ["STRONG", "EXCELLENT"]
+      },
+      "business": {
+        "min_quality_score": 75.0,
+        "allowed_sizes": ["LARGE_CAP", "MEGA_CAP"],
+        "min_employees": 5000,
+        "preferred_sectors": ["Technology", "Healthcare", "Financials", "Consumer Staples"],
+        "blacklist_sectors": ["Energy", "Materials", "Real Estate"]
+      },
+      "composite": {
+        "min_score": 82.0,
+        "required_grades": ["A-", "A", "A+"],
+        "max_risk": "LOW",
+        "required_confidence": ["HIGH", "VERY_HIGH"]
+      }
+    },
+    
+    "growth": {
+      "name": "Growth Premium", 
+      "description": "מניות צמיחה איכותיות עם פוטנציאל גבוה",
+      "technical": {
+        "min_score": 80.0,
+        "required_signals": ["Buy"],
+        "max_age": 5,
+        "min_rr_ratio": 3.0,
+        "min_patterns": 2
+      },
+      "fundamental": {
+        "min_score": 70.0,
+        "max_pe": 35.0,
+        "min_roe": 0.20,
+        "max_debt_equity": 30.0,
+        "required_strength": ["STRONG", "EXCELLENT"]
+      },
+      "business": {
+        "min_quality_score": 80.0,
+        "allowed_sizes": ["MID_CAP", "LARGE_CAP", "MEGA_CAP"],
+        "min_employees": 2000,
+        "preferred_sectors": ["Technology", "Healthcare", "Communication Services"],
+        "blacklist_sectors": ["Utilities", "Real Estate", "Materials"]
+      },
+      "composite": {
+        "min_score": 85.0,
+        "required_grades": ["A", "A+"],
+        "max_risk": "LOW",
+        "required_confidence": ["VERY_HIGH"]
+      }
+    },
+    
+    "elite": {
+      "name": "Elite Premium",
+      "description": "מניות עלית יוצאות מן הכלל - רק הטובות ביותר",
+      "technical": {
+        "min_score": 85.0,
+        "required_signals": ["Buy"],
+        "max_age": 3,
+        "min_rr_ratio": 3.5,
+        "min_patterns": 2
+      },
+      "fundamental": {
+        "min_score": 80.0,
+        "max_pe": 25.0,
+        "min_roe": 0.25,
+        "max_debt_equity": 25.0,
+        "required_strength": ["EXCELLENT"]
+      },
+      "business": {
+        "min_quality_score": 85.0,
+        "allowed_sizes": ["LARGE_CAP", "MEGA_CAP"],
+        "min_employees": 10000,
+        "preferred_sectors": ["Technology", "Healthcare"],
+        "blacklist_sectors": ["Energy", "Materials", "Real Estate", "Utilities", "Industrials"]
+      },
+      "composite": {
+        "min_score": 90.0,
+        "required_grades": ["A+"],
+        "max_risk": "LOW", 
+        "required_confidence": ["VERY_HIGH"]
+      }
+    }
+  },
+  
+  "quality_gates": {
+    "require_all_scores_positive": true,
+    "require_consistent_excellence": true,
+    "consistency_threshold": 60.0,
+    "premium_threshold": 80.0,
+    "elite_threshold": 90.0
+  },
+  
+  "scan_parameters": {
+    "max_results_per_profile": 10,
+    "sort_by": "composite_score",
+    "include_analysis": true,
+    "detailed_logging": true
+  },
+  
+  "sector_preferences": {
+    "highly_preferred": ["Technology", "Healthcare"],
+    "preferred": ["Financials", "Consumer Staples", "Communication Services"],
+    "neutral": ["Industrials", "Consumer Discretionary"],
+    "cautious": ["Utilities", "Real Estate"],
+    "avoid": ["Energy", "Materials"]
+  },
+  
+  "company_size_preferences": {
+    "mega_cap": {"min_market_cap": 200000000000, "weight": 1.0},
+    "large_cap": {"min_market_cap": 10000000000, "weight": 0.9},
+    "mid_cap": {"min_market_cap": 2000000000, "weight": 0.7},
+    "small_cap": {"min_market_cap": 300000000, "weight": 0.5},
+    "micro_cap": {"min_market_cap": 50000000, "weight": 0.2}
+  }
+}

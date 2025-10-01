@@ -1,0 +1,15 @@
+{
+  "iteration": 1,
+  "training_cutoff_date": "2025-05-16",
+  "validation_start_date": "2025-05-19",
+  "validation_end_date": "2025-09-19",
+  "models_trained": {
+    "5": "ml/models/historical/20250516\\model_rf_5d.pkl"
+  },
+  "predictions_count": 270,
+  "actual_results_count": 255,
+  "accuracy_by_horizon": {
+    "5": 0.802559878146472
+  },
+  "improvement_from_previous": null
+}

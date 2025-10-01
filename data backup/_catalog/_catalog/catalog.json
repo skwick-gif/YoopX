@@ -1,0 +1,27 @@
+[
+  {
+    "ticker": "BVN",
+    "src_path": "C:/Users/eranl/Downloads/ToFix/data backup/_catalog\\catalog.json",
+    "parquet_path": "C:/Users/eranl/Downloads/ToFix/data backup/_catalog\\_parquet\\BVN.parquet",
+    "n_rows": 3831,
+    "n_cols": 11,
+    "min_date": null,
+    "max_date": null,
+    "date_col": null,
+    "filesize_bytes": 5395126,
+    "last_modified": 1758889655.0,
+    "fields": [
+      "ticker",
+      "src_path",
+      "parquet_path",
+      "n_rows",
+      "n_cols",
+      "min_date",
+      "max_date",
+      "date_col",
+      "filesize_bytes",
+      "last_modified",
+      "fields"
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "test_date": "2025-03-01",
+    "success": true,
+    "tickers_count": 4,
+    "validation_auc": 0.49007803790412485,
+    "dataset_size": null,
+    "features_count": 0
+  },
+  {
+    "test_date": "2025-04-01",
+    "success": true,
+    "tickers_count": 4,
+    "validation_auc": 0.47543298192771094,
+    "dataset_size": null,
+    "features_count": 0
+  },
+  {
+    "test_date": "2025-05-01",
+    "success": true,
+    "tickers_count": 4,
+    "validation_auc": 0.4747112704101951,
+    "dataset_size": null,
+    "features_count": 0
+  },
+  {
+    "test_date": "2025-06-01",
+    "success": true,
+    "tickers_count": 4,
+    "validation_auc": 0.46023548853542656,
+    "dataset_size": null,
+    "features_count": 0
+  },
+  {
+    "test_date": "2025-07-01",
+    "success": true,
+    "tickers_count": 4,
+    "validation_auc": 0.45929339477726583,
+    "dataset_size": null,
+    "features_count": 0
+  },
+  {
+    "test_date": "2025-08-01",
+    "success": true,
+    "tickers_count": 4,
+    "validation_auc": 0.48008658008658006,
+    "dataset_size": null,
+    "features_count": 0
+  }
+]

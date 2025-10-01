@@ -1,0 +1,21 @@
+{
+  "config": {
+    "start_date": "2025-07-01",
+    "end_date": "2025-07-01",
+    "horizons": [
+      1
+    ],
+    "algorithms": [
+      "rf"
+    ]
+  },
+  "daily_results": {
+    "2025-07-01": {}
+  },
+  "summary": {
+    "total_days_tested": 1,
+    "total_models_trained": 0,
+    "successful_scans": 0,
+    "performance_metrics": {}
+  }
+}

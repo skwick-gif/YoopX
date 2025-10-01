@@ -1,0 +1,30 @@
+{
+  "ml_model": "rf",
+  "ml_min_prob": 0.0,
+  "auto_rescan": false,
+  "scan_settings_geometry": "AdnQywADAAAAAAAzAAAABQAABLcAAAKcAAAAMwAAACMAAAS3AAACnAAAAAAAAAAABQAAAAAzAAAAIwAABLcAAAKc",
+  "score_formula": "weighted",
+  "w_prob": 0.55,
+  "w_rr": 0.25,
+  "w_fresh": 0.15,
+  "w_pattern": 0.05,
+  "horizons": "",
+  "use_horizon": "",
+  "min_price": null,
+  "max_price": null,
+  "min_atr": null,
+  "max_atr": null,
+  "max_age": null,
+  "adv_visible": true,
+  "lookback": 30,
+  "rr_target": "2xATR",
+  "min_rr": 0.0,
+  "initialized_preset": true,
+  "selected_strategies": [
+    "Donchian Breakout"
+  ],
+  "selected_patterns": [],
+  "side_panel_visible": true,
+  "use_rigorous_scan": true,
+  "rigorous_profile": "conservative"
+}

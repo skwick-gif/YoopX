@@ -1,0 +1,68 @@
+# Root project ignore
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE/editor
+.vscode/
+.idea/
+*.iml
+
+# Logs & runtime artifacts
+logs/
+*.log
+
+# Large / generated data directories (excluded per user request)
+raw_data/
+processed_data/
+cache/
+cache_manager/
+cache_manager.json
+cache/**
+
+# Backup & temp
+*.tmp
+*.bak
+*~
+.tmp/
+
+# Data snapshots & registries (keep ML registry if needed, else uncomment)
+# ml/registry/
+
+# Sandbox workspace excluded per user request
+next_stage_workspace/
+
+# Local datasets & external fetch outputs
+run_repo/
+/tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+
+# Node (if any tooling pulls it in later)
+node_modules/
+
+# Coverage / test artifacts
+.pytest_cache/
+.coverage*
+htmlcov/
+
+# Misc
+*.sqlite3

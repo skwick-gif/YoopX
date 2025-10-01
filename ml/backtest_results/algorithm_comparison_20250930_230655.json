@@ -1,0 +1,143 @@
+[
+  {
+    "config": {
+      "test_date": "2025-04-01",
+      "algorithms": [
+        "rf",
+        "xgb",
+        "lgbm"
+      ],
+      "timestamp": "2025-09-30T23:06:48.569626"
+    },
+    "algorithm_results": {
+      "rf": {
+        "success": true,
+        "algorithm": "rf",
+        "validation_auc": 0.47543298192771094,
+        "dataset_size": null,
+        "features_count": 0,
+        "model_exists": true,
+        "training_time": null,
+        "model_path": "ml/temp_historical_models\\temp_rf_20250401.pkl"
+      },
+      "xgb": {
+        "success": false,
+        "error": "xgboost not installed: No module named 'xgboost'"
+      },
+      "lgbm": {
+        "success": false,
+        "error": "lightgbm not installed: No module named 'lightgbm'"
+      }
+    },
+    "comparison": {
+      "best_algorithm": "rf",
+      "best_auc": 0.47543298192771094,
+      "ranking": [
+        [
+          "rf",
+          0.47543298192771094
+        ]
+      ],
+      "auc_range": {
+        "min": 0.47543298192771094,
+        "max": 0.47543298192771094,
+        "avg": 0.47543298192771094
+      }
+    },
+    "success": true
+  },
+  {
+    "config": {
+      "test_date": "2025-06-01",
+      "algorithms": [
+        "rf",
+        "xgb",
+        "lgbm"
+      ],
+      "timestamp": "2025-09-30T23:06:50.800117"
+    },
+    "algorithm_results": {
+      "rf": {
+        "success": true,
+        "algorithm": "rf",
+        "validation_auc": 0.46023548853542656,
+        "dataset_size": null,
+        "features_count": 0,
+        "model_exists": true,
+        "training_time": null,
+        "model_path": "ml/temp_historical_models\\temp_rf_20250601.pkl"
+      },
+      "xgb": {
+        "success": false,
+        "error": "xgboost not installed: No module named 'xgboost'"
+      },
+      "lgbm": {
+        "success": false,
+        "error": "lightgbm not installed: No module named 'lightgbm'"
+      }
+    },
+    "comparison": {
+      "best_algorithm": "rf",
+      "best_auc": 0.46023548853542656,
+      "ranking": [
+        [
+          "rf",
+          0.46023548853542656
+        ]
+      ],
+      "auc_range": {
+        "min": 0.46023548853542656,
+        "max": 0.46023548853542656,
+        "avg": 0.46023548853542656
+      }
+    },
+    "success": true
+  },
+  {
+    "config": {
+      "test_date": "2025-08-01",
+      "algorithms": [
+        "rf",
+        "xgb",
+        "lgbm"
+      ],
+      "timestamp": "2025-09-30T23:06:52.874158"
+    },
+    "algorithm_results": {
+      "rf": {
+        "success": true,
+        "algorithm": "rf",
+        "validation_auc": 0.48008658008658006,
+        "dataset_size": null,
+        "features_count": 0,
+        "model_exists": true,
+        "training_time": null,
+        "model_path": "ml/temp_historical_models\\temp_rf_20250801.pkl"
+      },
+      "xgb": {
+        "success": false,
+        "error": "xgboost not installed: No module named 'xgboost'"
+      },
+      "lgbm": {
+        "success": false,
+        "error": "lightgbm not installed: No module named 'lightgbm'"
+      }
+    },
+    "comparison": {
+      "best_algorithm": "rf",
+      "best_auc": 0.48008658008658006,
+      "ranking": [
+        [
+          "rf",
+          0.48008658008658006
+        ]
+      ],
+      "auc_range": {
+        "min": 0.48008658008658006,
+        "max": 0.48008658008658006,
+        "avg": 0.48008658008658006
+      }
+    },
+    "success": true
+  }
+]

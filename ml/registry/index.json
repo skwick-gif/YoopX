@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "20250929_215805",
+    "model_type": "rf",
+    "samples": 1420645,
+    "symbols": 3803,
+    "cv_mean_auc": 0.6344003557215587,
+    "snapshot_dir": "ml\\registry\\20250929_215805"
+  },
+  {
+    "timestamp": "20250929_190440",
+    "model_type": "rf",
+    "samples": 1420645,
+    "symbols": 3803,
+    "cv_mean_auc": 0.6344003557215587,
+    "snapshot_dir": "ml\\registry\\20250929_190440"
+  }
+]
