@@ -72,9 +72,18 @@ class DailyUpdateWorkerNew(QObject):
                 if not self._is_cancelled:
                     self.status.emit(status)
             
-            # Check for cancellation before starting
+            # Check for cancellation before starting – emit finished so UI resets
             if self._is_cancelled:
-                self.status.emit("Cancelled by user")
+                self.status.emit("Cancelled by user (pre-start)")
+                self.finished.emit({
+                    "success": False,
+                    "cancelled": True,
+                    "total": 0,
+                    "successful": 0,
+                    "failed": 0,
+                    "skipped": 0,
+                    "message": "Cancelled before execution began"
+                })
                 return
             
             # Execute the comprehensive data fetching
@@ -152,7 +161,21 @@ class DailyUpdateWorkerNew(QObject):
             
             # Check for cancellation after execution
             if self._is_cancelled:
+                # Emit a partial summary so the UI can re-enable controls
                 self.status.emit("Cancelled by user")
+                try:
+                    final_result = {
+                        "success": False,
+                        "cancelled": True,
+                        "total": results.get('total_tickers', 0),
+                        "successful": len(results.get('successful', [])),
+                        "failed": len(results.get('failed', [])),
+                        "skipped": len(results.get('skipped', [])),
+                        "message": "Cancelled after partial execution"
+                    }
+                except Exception:
+                    final_result = {"success": False, "cancelled": True, "message": "Cancelled"}
+                self.finished.emit(final_result)
                 return
             
             # Emit individual ticker results
@@ -187,6 +210,7 @@ class DailyUpdateWorkerNew(QObject):
             # Emit final results
             final_result = {
                 "success": True,
+                "cancelled": False,
                 "total": results['total_tickers'],
                 "successful": len(results['successful']),
                 "failed": len(results['failed']),
@@ -196,7 +220,6 @@ class DailyUpdateWorkerNew(QObject):
                 "completed_at": results.get("completed_at"),
                 "summary": summary
             }
-            
             self.finished.emit(final_result)
 
         except Exception as e:

@@ -1099,7 +1099,14 @@ class MainContent(QWidget):
             self._stop_daily_btn = QPushButton('🛑 Stop')
             self._stop_daily_btn.setObjectName('stop_button')  # Special red styling
             self._stop_daily_btn.setToolTip('עצור עדכון יומי פעיל')
-            self._stop_daily_btn.clicked.connect(lambda: self._daily_worker.cancel() if hasattr(self._daily_worker, 'cancel') else None)
+            def _cancel_daily():
+                try:
+                    if hasattr(self, '_daily_worker') and hasattr(self._daily_worker, 'cancel'):
+                        self._daily_worker.cancel()
+                    self.status_label.setText('ביטול תהליך עדכון יומי...')
+                except Exception:
+                    pass
+            self._stop_daily_btn.clicked.connect(_cancel_daily)
             # insert before spacer (so it sits with other action buttons)
             try:
                 if hasattr(self, 'bottom_layout') and hasattr(self, '_bottom_spacer'):
