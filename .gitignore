@@ -41,7 +41,6 @@ cache/**
 next_stage_workspace/
 
 # Local datasets & external fetch outputs
-run_repo/
 /tmp/
 
 # OS
