@@ -1,4 +1,13 @@
 @echo off
+:: אם הופעל מחלון שנפתח ע"י Explorer (double-click) בדרך כלל התהליך הוא cmd /c
+:: נזהה זאת ע"י חיפוש '/c' ב-%CMDCMDLINE% ונפתח מחדש עם /k כדי שהחלון לא ייסגר מיד.
+if /i not "%~1"=="internal" (
+  echo %CMDCMDLINE% | find /i "/c" >nul 2>nul && (
+    start "GitMenu" cmd /k call "%~f0" internal %*
+    goto :eof
+  )
+)
+@echo off
 :: ==================================================
 :: תפריט ניהול ריפו Git בעברית (עם שיפורי יציבות)
 :: * מונע סגירה מידית (בודק ריפו / מציג שגיאות)
