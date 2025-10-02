@@ -1,24 +1,48 @@
 @echo off
-:: ===============================
-:: תפריט ניהול ריפו Git בעברית (RTL Approx)
-:: שמור קובץ זה ב-root של הפרויקט והרץ אותו (לחיצה כפולה או מתוך PowerShell/CMD)
-:: יישור לימין בסביבת CMD מוגבל – לכן השורות מרופדות ברווחים משמאל.
-:: נדרש: Git מותקן ב- PATH.
-:: ===============================
+:: ==================================================
+:: תפריט ניהול ריפו Git בעברית (עם שיפורי יציבות)
+:: * מונע סגירה מידית (בודק ריפו / מציג שגיאות)
+:: * debug: הפעלה עם פרמטר debug -> יוצר git_menu_debug.log
+:: * קוד עמוד UTF-8 ואם נכשל מנסה 862 (עברית OEM)
+:: ==================================================
 
-chcp 65001 >nul 2>nul
-setlocal EnableDelayedExpansion
-cd /d "%~dp0"
+setlocal EnableExtensions EnableDelayedExpansion
+cd /d "%~dp0" 2>nul
 
-:: בדיקת קיום Git
+:: --- קוד עמוד ---
+chcp 65001 >nul 2>nul || chcp 862 >nul 2>nul
+
+:: --- מצב דיבאג ---
+set DEBUG_MODE=0
+if /i "%~1"=="debug" set DEBUG_MODE=1
+if %DEBUG_MODE%==1 (echo [DEBUG] מצב דיבאג פעיל > git_menu_debug.log)
+
+call :dbg "התחלה"
+
+:: --- בדיקת האם בתוך ריפו ---
+git rev-parse --is-inside-work-tree >nul 2>nul
+if errorlevel 1 (
+  echo לא זוהה ריפו Git בתיקייה הזו.
+  echo ודא שאתה בתוך התיקייה של הפרויקט (יש .git).
+  echo.
+  pause
+  goto graceful_exit
+)
+
+:: --- בדיקת קיום Git ---
 git --version >nul 2>nul || (
   echo --------------------------------------------------
   echo   Git לא זמין (PATH חסר). התקן Git או פתח Git Bash
   echo   יציאה...
   echo --------------------------------------------------
   pause
-  goto :eof
+  goto graceful_exit
 )
+
+:: --- פונקציית לוג לדיבאג ---
+:dbg
+if %DEBUG_MODE%==1 echo [%DATE% %TIME%] %~1>>git_menu_debug.log
+goto :eof
 
 set MENU_WIDTH=78
 
@@ -47,6 +71,9 @@ for /f "tokens=*" %%B in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set CURRE
 
 :menu
 cls
+call :dbg "מציג תפריט"
+for /f "tokens=*" %%B in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set CURRENT_BRANCH=%%B
+if not defined CURRENT_BRANCH set CURRENT_BRANCH=?
 call :line
 call :rprint "תפריט ניהול ריפו (Git) — ענף: %CURRENT_BRANCH%"
 call :line
@@ -65,8 +92,10 @@ call :rprint "12. הצגת קבצים שהשתנו (Name-Status)"
 call :rprint "13. עדכון שם משתמש/אימייל ל-Commit"
 call :rprint "0. יציאה"
 call :line
+set "CH="
 set /p CH="בחר מספר ולחץ Enter: "
-
+if not defined CH goto menu
+call :dbg "בחירה=%CH%"
 if "%CH%"=="1" goto do_status
 if "%CH%"=="2" goto do_pull
 if "%CH%"=="3" goto do_push
@@ -81,6 +110,8 @@ if "%CH%"=="11" goto do_clean
 if "%CH%"=="12" goto do_changed
 if "%CH%"=="13" goto do_usercfg
 if "%CH%"=="0" goto end
+echo בחירה לא תקינה. נסה שוב.
+timeout /t 1 >nul
 goto menu
 
 :do_status
@@ -203,5 +234,9 @@ goto menu
 :end
 echo יציאה...
 timeout /t 1 >nul
+goto graceful_exit
+
+:graceful_exit
+call :dbg "סיום"
 endlocal
 exit /b 0
